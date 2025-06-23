@@ -228,7 +228,8 @@ This project is developed for educational purposes as part of university coursew
 ## 👨‍💻 Author
 
 **ALİ ÇAĞAN CEBECİ**  
-Department: Software Engineering  
+Department: Software Engineering
+Student ID: 240543016  
 University: Fırat University  
 GitHub: [@LordAlis](https://github.com/LordAlis)  
 
