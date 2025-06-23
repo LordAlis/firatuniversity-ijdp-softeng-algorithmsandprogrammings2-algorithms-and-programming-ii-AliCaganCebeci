@@ -210,7 +210,7 @@ This project was developed as part of the **Algorithms and Programming II** seme
 1. **Levenshtein, V. I.** (1966). "Binary codes capable of correcting deletions, insertions, and reversals"
 2. **Cormen, T. H., et al.** (2009). "Introduction to Algorithms" (3rd ed.)
 3. **Skiena, S. S.** (2008). "The Algorithm Design Manual" (2nd ed.)
-4. **Dynamic Programming Lecture Notes** - Fırat University CS Department
+4. **Algorithm and Programming II Lecture Notes** - Fırat University CS Department (Prof. Ferhat Uçar)
 
 ## 🤝 Contributing
 
@@ -227,10 +227,8 @@ This project is developed for educational purposes as part of university coursew
 
 ## 👨‍💻 Author
 
-**ALİ ÇAĞAN CEBECİ**  
-Department: Software Engineering
-Student ID: 240543016  
-University: Fırat University  
+Name: Ali Çağan Cebeci
+Student ID: 240543016   
 GitHub: [@LordAlis](https://github.com/LordAlis)  
 
 ---
