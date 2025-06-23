@@ -19,6 +19,7 @@ from utils import (
     get_sample_string_pairs,
     calculate_edit_operations_cost
 )
+from datetime import datetime
 
 # Page configuration
 st.set_page_config(
@@ -191,9 +192,9 @@ if str1 and str2:
                 # Current DP table values
                 st.write("### DP Table State")
                 df = pd.DataFrame(current_step['dp_table'])
-                # Create unique column and row labels to avoid duplicates
-                row_labels = ['ε'] + [f"{str1[i]}({i})" for i in range(len(str1))]
-                col_labels = ['ε'] + [f"{str2[i]}({i})" for i in range(len(str2))]
+                # Create unique column and row labels to avoid duplicates with repeated characters
+                row_labels = ['ε'] + [f"{str1[i]}({i+1})" for i in range(len(str1))]
+                col_labels = ['ε'] + [f"{str2[i]}({i+1})" for i in range(len(str2))]
                 df.index = row_labels
                 df.columns = col_labels
                 st.dataframe(df, use_container_width=True)
@@ -263,11 +264,12 @@ else:
 
 # Footer
 st.markdown("---")
-st.markdown("""
+st.markdown(f"""
 <div style='text-align: center; color: gray;'>
     <small>
     Edit Distance Visualizer | ALİ ÇAĞAN CEBECİ | Fırat University Software Engineering<br>
-    Algorithms and Programming II - Semester Capstone Project | 2025
+    Algorithms and Programming II - Semester Capstone Project | 2025<br>
+    Last Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
     </small>
 </div>
 """, unsafe_allow_html=True)

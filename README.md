@@ -5,7 +5,7 @@
 **Dynamic Programming Visualization for String Transformation**
 
 ## 🌐 Streamlit Web App
-**Live Application URL:** *[To be deployed on Streamlit Cloud]*
+**Live Application URL:** [https://edit-distance-visualizer.streamlit.app](https://edit-distance-visualizer.streamlit.app)
 
 ## 📋 Project Description
 
@@ -37,7 +37,7 @@ This interactive web application implements and visualizes the **Edit Distance**
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/[your-username]/algorithms-and-programming-ii-semester-capstone-project-LordAlis.git
+   git clone https://github.com/LordAlis/algorithms-and-programming-ii-semester-capstone-project-LordAlis.git
    cd algorithms-and-programming-ii-semester-capstone-project-LordAlis
    ```
 
@@ -129,6 +129,24 @@ The test suite includes:
 - Complex transformations
 - Alignment path verification
 
+## 📸 Screenshots
+
+### Main Visualization Interface
+![Main Interface](screenshots/main-interface.png)
+*Interactive Edit Distance visualization showing DP table heatmap and string alignment for transforming "kitten" to "sitting"*
+
+### Step-by-Step Algorithm Execution
+![Step by Step Execution](screenshots/step-by-step.png)
+*Algorithm execution with highlighted current step and detailed explanations*
+
+### Complexity Analysis Dashboard
+![Complexity Analysis](screenshots/complexity-analysis.png)
+*Time and space complexity visualization with performance comparison charts*
+
+### Algorithm Information Tab
+![Algorithm Info](screenshots/algorithm-info.png)
+*Comprehensive algorithm documentation and educational content*
+
 ## 📁 Project Structure
 
 ```
@@ -138,20 +156,16 @@ The test suite includes:
 ├── test_algorithm.py     # Unit tests
 ├── requirements.txt      # Python dependencies
 ├── README.md            # Project documentation
-└── data/                # Sample data directory
-    └── .gitkeep         # Keeps directory in git
+├── data/                # Sample data directory
+│   └── .gitkeep         # Keeps directory in git
+└── screenshots/         # Application screenshots
+    ├── main-interface.png
+    ├── step-by-step.png
+    ├── complexity-analysis.png
+    └── algorithm-info.png
 ```
 
-## 📸 Screenshots
 
-### Main Visualization Interface
-*[Screenshot of the main interface showing DP table heatmap and string alignment]*
-
-### Step-by-Step Execution
-*[Screenshot of step-by-step mode with highlighted current cell]*
-
-### Complexity Analysis
-*[Screenshot of complexity comparison chart]*
 
 ## 🎯 Applications
 
@@ -214,10 +228,9 @@ This project is developed for educational purposes as part of university coursew
 ## 👨‍💻 Author
 
 **ALİ ÇAĞAN CEBECİ**  
-Student ID: [Your Student ID]  
-Email: [Your Email]  
 Department: Software Engineering  
 University: Fırat University  
+GitHub: [@LordAlis](https://github.com/LordAlis)  
 
 ---
 
