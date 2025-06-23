@@ -122,7 +122,7 @@ if str1 and str2:
                     {"Operation": "Substitutions", "Count": costs['replace'], "Cost": costs['replace']},
                     {"Operation": "Insertions", "Count": costs['insert'], "Cost": costs['insert']},
                     {"Operation": "Deletions", "Count": costs['delete'], "Cost": costs['delete']},
-                    {"Operation": "**Total Cost**", "Count": "**-**", "Cost": f"**{edit_dist}**"}
+                    {"Operation": "Total Cost", "Count": "-", "Cost": edit_dist}
                 ])
                 st.table(ops_df)
     
@@ -191,8 +191,11 @@ if str1 and str2:
                 # Current DP table values
                 st.write("### DP Table State")
                 df = pd.DataFrame(current_step['dp_table'])
-                df.index = [''] + list(str1)
-                df.columns = [''] + list(str2)
+                # Create unique column and row labels to avoid duplicates
+                row_labels = ['ε'] + [f"{str1[i]}({i})" for i in range(len(str1))]
+                col_labels = ['ε'] + [f"{str2[i]}({i})" for i in range(len(str2))]
+                df.index = row_labels
+                df.columns = col_labels
                 st.dataframe(df, use_container_width=True)
     
     with tab3:
