@@ -1,208 +1,224 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/HuDt6KLx)
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19223275&assignment_repo_type=AssignmentRepo)
-# Algorithms and Programming II - Semester Capstone Project
+# 🔤 Edit Distance (Levenshtein Distance) Visualizer
 
-## Overview
+**Dynamic Programming Visualization for String Transformation**
 
-Welcome to the Algorithms and Programming II course project at Fırat University, Technology Faculty, Software Engineering Department. This project involves developing interactive web applications to implement, visualize, and analyze algorithms using Python and Streamlit.
+## 🌐 Streamlit Web App
+**Live Application URL:** *[To be deployed on Streamlit Cloud]*
 
-## Learning Objectives
+## 📋 Project Description
 
-This project is designed to help you:
+This interactive web application implements and visualizes the **Edit Distance** (Levenshtein Distance) algorithm using Python and Streamlit. The application demonstrates how dynamic programming can efficiently calculate the minimum number of single-character edits (insertions, deletions, or substitutions) required to transform one string into another.
 
-- Implement complex algorithms in Python
-- Create interactive visualizations that demonstrate algorithm behavior
-- Analyze and understand the time and space complexity of algorithms
-- Practice modern software development workflows using Git and GitHub
-- Gain experience with web application development and deployment
-- Improve technical documentation skills
+**Developed by:** ALİ ÇAĞAN CEBECİ  
+**Course:** Algorithms and Programming II - Semester Capstone Project  
+**University:** Fırat University - Software Engineering Department  
+**Instructor:** Assoc. Prof. Ferhat UÇAR  
 
-## Technology Stack
+## ✨ Features
 
-- **Programming Language:** Python 3.8+
-- **Web Framework:** Streamlit
-- **Version Control:** Git and GitHub
-- **Deployment:** Streamlit Cloud
+- **Interactive String Input**: Enter custom strings or choose from predefined examples
+- **Step-by-Step Visualization**: Watch the algorithm execute with detailed explanations
+- **Dynamic Programming Table**: Visual heatmap showing the DP table construction
+- **String Alignment**: Color-coded visualization of character matches and operations
+- **Auto-Play Mode**: Automated step-through with adjustable speed
+- **Complexity Analysis**: Visual comparison of time complexities
+- **Operations Breakdown**: Detailed cost analysis of transformations
+- **Responsive Design**: Modern, user-friendly interface
 
-## Getting Started
+## 🚀 Installation and Usage
 
 ### Prerequisites
-
-Before you begin, ensure you have the following installed:
-
 - Python 3.8 or higher
-- Git
-- A GitHub account
-- A text editor or IDE (e.g., VS Code, PyCharm)
+- pip package manager
 
-### Setting Up Your Development Environment
+### Installation Steps
 
-1. **Accept the GitHub Classroom Assignment**
-   - Click on the assignment link shared by your instructor
-   - This will create a personal copy of the project template in your GitHub account
-
-2. **Clone Your Repository**
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/firat-university-algorithms/your-project-repo.git
-   cd your-project-repo
+   git clone https://github.com/[your-username]/algorithms-and-programming-ii-semester-capstone-project-LordAlis.git
+   cd algorithms-and-programming-ii-semester-capstone-project-LordAlis
    ```
 
-3. **Create a Virtual Environment**
+2. **Install required packages:**
    ```bash
-   # On Windows
-   python -m venv venv
-   venv\Scripts\activate
-
-   # On macOS/Linux
-   python3 -m venv venv
-   source venv/bin/activate
+   pip install -r requirements.txt
    ```
 
-## Project Requirements
+3. **Run the application:**
+   ```bash
+   streamlit run app.py
+   ```
 
-### Core Components
+4. **Access the application:**
+   Open your browser and navigate to `http://localhost:8501`
 
-Each project must include:
+### Usage Instructions
 
-1. **Algorithm Implementation**
-   - Correctly implement your assigned algorithm
-   - Handle edge cases and error conditions
-   - Optimize for performance where possible
+1. **Input Strings**: Enter two strings in the sidebar or select from sample pairs
+2. **Visualization Options**: Toggle different visualization features
+3. **Explore Tabs**:
+   - **Visualization**: See the DP table heatmap and string alignment
+   - **Step-by-Step**: Watch the algorithm execute with detailed steps
+   - **Analysis**: View complexity analysis and performance metrics
+   - **Algorithm Info**: Learn about the Edit Distance algorithm
 
-2. **Interactive Interface**
-   - Create user controls to manipulate inputs and parameters
-   - Allow users to adjust algorithm settings and see results in real-time
-   - Provide clear instructions for users
+## 📊 Algorithm Overview
 
-3. **Visualization**
-   - Create visual representations of how your algorithm works
-   - Illustrate the algorithm's step-by-step execution
-   - Use appropriate charts, graphs, or custom visualizations
+### What is Edit Distance?
 
-4. **Step-by-Step Explanation**
-   - Include an option to walk through the algorithm's execution
-   - Explain each major step in the algorithm
-   - Highlight key decisions and operations
+The **Edit Distance** between two strings is the minimum number of single-character edits needed to transform one string into another. The three allowed operations are:
 
-5. **Complexity Analysis**
-   - Document the time complexity (Big O notation)
-   - Document the space complexity
-   - Explain how the complexity changes with different inputs
+- **Insertion**: Add a character (cost: 1)
+- **Deletion**: Remove a character (cost: 1)  
+- **Substitution**: Replace a character (cost: 1)
+- **Match**: Characters are identical (cost: 0)
 
-6. **Test Cases**
-   - Include various examples demonstrating algorithm behavior
-   - Provide best-case, average-case, and worst-case scenarios
-   - Allow users to input custom test cases
+### Dynamic Programming Approach
 
-### Repository Structure
+The algorithm uses a bottom-up dynamic programming approach:
 
-Your repository should contain:
+1. **Initialization**: Create an (m+1) × (n+1) DP table
+2. **Base Cases**: Fill the first row and column
+3. **Recurrence Relation**:
+   ```
+   If str1[i-1] == str2[j-1]:
+       dp[i][j] = dp[i-1][j-1]  // No cost for match
+   Else:
+       dp[i][j] = 1 + min(
+           dp[i-1][j],    // Deletion
+           dp[i][j-1],    // Insertion
+           dp[i-1][j-1]   // Substitution
+       )
+   ```
+4. **Result**: The value at `dp[m][n]` gives the edit distance
+
+## 📈 Complexity Analysis
+
+### Time Complexity: **O(m × n)**
+- **m**: Length of first string
+- **n**: Length of second string
+- **Explanation**: We fill each cell in the DP table exactly once
+
+### Space Complexity: **O(m × n)**
+- **Storage**: Required for the DP table
+- **Optimization**: Can be reduced to O(min(m,n)) with space optimization
+
+### Comparison with Naive Approach
+
+| Approach | Time Complexity | Space Complexity |
+|----------|----------------|------------------|
+| **Dynamic Programming** | O(m × n) | O(m × n) |
+| **Naive Recursive** | O(3^max(m,n)) | O(max(m,n)) |
+
+The DP approach provides exponential speedup over the naive recursive solution.
+
+## 🧪 Testing
+
+Run the unit tests to verify algorithm correctness:
+
+```bash
+python test_algorithm.py
+```
+
+The test suite includes:
+- Basic functionality tests
+- Edge cases (empty strings, identical strings)
+- Classic examples (kitten → sitting)
+- Complex transformations
+- Alignment path verification
+
+## 📁 Project Structure
 
 ```
-project-repository/
-├── app.py                     # Main Streamlit application
-├── algorithm.py               # Implementation of your algorithm
-├── utils.py                   # Helper functions
-├── visualizer.py              # Visualization components
-├── README.md                  # Project documentation
-├── requirements.txt           # Python package dependencies
-├── test_algorithm.py          # Unit tests
-├── examples/                  # Example inputs and outputs
-│   ├── example1.json
-│   └── example2.json
-├── data/                      # Sample data files (if applicable)
-│   ├── sample1.csv
-│   └── sample2.csv
-└── docs/                      # Additional documentation
-    ├── algorithm_description.md
-    └── screenshots/
-        ├── screenshot1.png
-        └── screenshot2.png
+├── app.py                 # Main Streamlit application
+├── algorithm.py           # Edit Distance implementation
+├── utils.py              # Visualization and utility functions
+├── test_algorithm.py     # Unit tests
+├── requirements.txt      # Python dependencies
+├── README.md            # Project documentation
+└── data/                # Sample data directory
+    └── .gitkeep         # Keeps directory in git
 ```
 
-## Documentation Requirements
+## 📸 Screenshots
 
-Your README.md should include:
+### Main Visualization Interface
+*[Screenshot of the main interface showing DP table heatmap and string alignment]*
 
-- Project title and description
-- Algorithm explanation with mathematical notation when appropriate
-- Installation and usage instructions
-- Screenshots of the application
-- Complexity analysis with explanations
-- Examples of inputs and outputs
-- Known limitations and future improvements
-- References and resources used
+### Step-by-Step Execution
+*[Screenshot of step-by-step mode with highlighted current cell]*
 
-## Deployment Instructions
+### Complexity Analysis
+*[Screenshot of complexity comparison chart]*
 
-### Deploying to Streamlit Cloud
+## 🎯 Applications
 
-1. Create a free account on [Streamlit Cloud](https://streamlit.io/cloud)
-2. Connect your GitHub repository
-3. Configure your app settings
-4. Deploy your application
-5. Add the deployment URL to your README.md
+The Edit Distance algorithm has numerous real-world applications:
 
-## Evaluation Criteria
+- **Spell Checkers**: Finding closest word matches
+- **DNA Sequencing**: Comparing genetic sequences
+- **Plagiarism Detection**: Measuring text similarity
+- **Version Control**: Computing file differences (diff)
+- **Natural Language Processing**: Text analysis and comparison
+- **Autocomplete Systems**: Suggesting corrections
+- **Data Deduplication**: Finding similar records
 
-Your project will be evaluated based on:
+## 🔧 Technical Implementation
 
-- Correctness of algorithm implementation (40%)
-- Quality of visualization and user interface (20%)
-- Documentation quality (15%)
-- Code organization and clarity (15%)
-- Creativity and additional features (10%)
+### Key Components
 
-## Submission Guidelines
+1. **algorithm.py**: Core edit distance implementation with step tracking
+2. **utils.py**: Visualization functions using Plotly
+3. **app.py**: Streamlit interface with interactive controls
 
-1. Ensure your code is well-commented and follows Python best practices
-2. Verify all required components are included
-3. Test your application thoroughly
-4. Update your README.md with all required information
-5. Commit and push your final changes to GitHub
-6. Deploy your application to Streamlit Cloud
-7. Submit the final version by the deadline: **June 23, 2025, 23:59**
+### Libraries Used
 
-## Resources
+- **Streamlit**: Web application framework
+- **Plotly**: Interactive visualizations
+- **Pandas**: Data manipulation
+- **NumPy**: Numerical computations
 
-### Streamlit Resources
-- [Streamlit Documentation](https://docs.streamlit.io)
-- [Streamlit Components](https://streamlit.io/components)
-- [Streamlit Deployment](https://docs.streamlit.io/cloud)
+## 🏆 Academic Context
 
-### Algorithm Resources
-- Introduction to Algorithms (CLRS) - 4th Edition
-- Algorithm Design Manual - Steven Skiena
-- [VisuAlgo](https://visualgo.net)
-- [Algorithm Visualizations](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+This project was developed as part of the **Algorithms and Programming II** semester capstone project at Fırat University's Software Engineering Department. The assignment required implementing a unique algorithm with:
 
-### GitHub Resources
-- [Git & GitHub for Beginners](https://docs.github.com/en/get-started)
-- [GitHub Classroom Guide](https://github.com/education/classroom)
+- ✅ Interactive web interface
+- ✅ Step-by-step visualization
+- ✅ Complexity analysis
+- ✅ Comprehensive documentation
+- ✅ Unit testing
+- ✅ GitHub deployment
 
-## Frequently Asked Questions
+## 📚 References
 
-**Q: Can I change my assigned algorithm?**  
-A: Only in exceptional cases. Please contact your instructor with a valid reason if you need to request a change.
+1. **Levenshtein, V. I.** (1966). "Binary codes capable of correcting deletions, insertions, and reversals"
+2. **Cormen, T. H., et al.** (2009). "Introduction to Algorithms" (3rd ed.)
+3. **Skiena, S. S.** (2008). "The Algorithm Design Manual" (2nd ed.)
+4. **Dynamic Programming Lecture Notes** - Fırat University CS Department
 
-**Q: Can I use additional libraries beyond the core requirements?**  
-A: Yes, but ensure they are properly documented in your requirements.txt file.
+## 🤝 Contributing
 
-**Q: How detailed should the visualization be?**  
-A: It should clearly illustrate each major step of the algorithm's execution. The visualization should help someone understand how the algorithm works.
+This is an academic project, but suggestions and improvements are welcome:
 
-**Q: Can I work in groups?**  
-A: No, this is an individual project. Each student has a unique algorithm assignment.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-**Q: What if I encounter technical difficulties with Streamlit deployment?**  
-A: Document the issue in your README and we can explore alternative deployment options if necessary.
+## 📜 License
 
-## Contact Information
+This project is developed for educational purposes as part of university coursework.
 
-For questions or assistance, please contact:
+## 👨‍💻 Author
 
-- **Instructor:** Assoc. Prof. Ferhat UÇAR
-- **Office Hours:** 
-  - Fridays: 10:30 - 12:00
+**ALİ ÇAĞAN CEBECİ**  
+Student ID: [Your Student ID]  
+Email: [Your Email]  
+Department: Software Engineering  
+University: Fırat University  
 
-- **Office Location:** Technology Faculty - A Section, 3rd floor.
+---
+
+*Developed with ❤️ for Algorithms and Programming II - Semester Capstone Project 2025*
